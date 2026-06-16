@@ -44,8 +44,10 @@
       display: inline-flex; align-items: center; gap: 9px;
       background: var(--accent); color: #fff; text-decoration: none;
       font-weight: 600; font-size: 16px; padding: 13px 22px; border-radius: 11px;
+      border: none; cursor: pointer; font-family: inherit; line-height: 1;
       transition: transform .06s ease, opacity .15s ease;
     }
+    .btn.copied { background: #1f9e6b; }
     .btn:hover { opacity: .92; }
     .btn:active { transform: translateY(1px); }
     .btn.secondary { background: transparent; color: var(--fg); border: 1px solid var(--border); }
@@ -92,9 +94,10 @@
     </p>
 
     <div class="cta">
-      <a class="btn" href="https://github.com/dharmaje/AltWindow-releases/releases/download/latest/AltWindow-latest.dmg">
-        Download for macOS
-      </a>
+      <button class="btn" type="button" id="copy-install"
+        data-cmd="curl -fsSL https://github.com/dharmaje/AltWindow-releases/releases/download/latest/install.sh | sh">
+        <span class="btn-label"><span aria-hidden="true">⧉</span>&nbsp; Copy install command</span>
+      </button>
       <a class="btn secondary" href="https://github.com/dharmaje/AltWindow-releases/releases">
         All releases
       </a>
@@ -164,5 +167,37 @@
       <p>© 2026 Jason Epel · <a href="https://github.com/dharmaje/AltWindow-releases">GitHub</a> · <a href="https://github.com/dharmaje/AltWindow-releases/issues">Report a bug</a> · <a href="https://github.com/dharmaje/AltWindow-releases/blob/main/LICENSE">License</a></p>
     </footer>
   </main>
+  <script>
+    (function () {
+      var btn = document.getElementById('copy-install');
+      if (!btn) return;
+      var label = btn.querySelector('.btn-label');
+      var original = label.innerHTML;
+      btn.addEventListener('click', function () {
+        var cmd = btn.getAttribute('data-cmd');
+        function done() {
+          label.textContent = '✓ Copied — paste into Terminal';
+          btn.classList.add('copied');
+          setTimeout(function () {
+            label.innerHTML = original;
+            btn.classList.remove('copied');
+          }, 2200);
+        }
+        function fallback() {
+          var ta = document.createElement('textarea');
+          ta.value = cmd; ta.setAttribute('readonly', '');
+          ta.style.position = 'absolute'; ta.style.left = '-9999px';
+          document.body.appendChild(ta); ta.select();
+          try { document.execCommand('copy'); done(); } catch (e) {}
+          document.body.removeChild(ta);
+        }
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(cmd).then(done, fallback);
+        } else {
+          fallback();
+        }
+      });
+    })();
+  </script>
 </body>
 </html>
