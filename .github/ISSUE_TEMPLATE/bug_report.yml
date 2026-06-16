@@ -1,0 +1,65 @@
+name: Bug report
+description: Report a problem with AltWindow
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report a bug! Please fill out the fields below so we can reproduce and fix it quickly.
+
+        > **Note:** This repo hosts the public AltWindow installers. The app source is private, but bug reports are very welcome here.
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: A clear description of the bug, including what you expected to happen instead.
+      placeholder: When I trigger a hook event, the companion window…
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Steps to reproduce
+      description: How can we reproduce the problem?
+      placeholder: |
+        1. Launch AltWindow
+        2. Run Claude Code in …
+        3. Observe …
+    validations:
+      required: true
+  - type: input
+    id: altwindow-version
+    attributes:
+      label: AltWindow build
+      description: Which build are you on? Find it in the AltWindow about screen, or note "latest" vs a versioned release (vX.Y.Z).
+      placeholder: e.g. latest, or v1.2.3
+    validations:
+      required: true
+  - type: input
+    id: macos-version
+    attributes:
+      label: macOS version
+      description: From  → About This Mac. AltWindow requires macOS 15+ on Apple silicon.
+      placeholder: e.g. macOS 15.4 (Apple silicon)
+    validations:
+      required: true
+  - type: dropdown
+    id: jq-installed
+    attributes:
+      label: Is jq installed?
+      description: AltWindow requires jq. Check with `jq --version` in a terminal.
+      options:
+        - "Yes"
+        - "No"
+        - "Not sure"
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs / screenshots
+      description: Paste any relevant error output, console logs, or screenshots. Logs are automatically formatted into code, so no need for backticks.
+      render: shell
+    validations:
+      required: false

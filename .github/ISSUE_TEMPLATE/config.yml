@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: AltWindow website
+    url: https://altwindow.com
+    about: Product info, downloads, and install instructions.
+  - name: Download the latest build
+    url: https://github.com/dharmaje/AltWindow-releases/releases
+    about: Grab the newest installer before reporting — your issue may already be fixed.
