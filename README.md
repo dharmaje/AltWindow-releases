@@ -14,14 +14,27 @@ Public downloads for **AltWindow**, a native macOS **companion app** for Claude 
 
 ## Install
 
-1. Open the downloaded `.dmg`.
-2. Double-click **Install AltWindow.command** — it copies AltWindow to **Applications**, clears the download quarantine, and launches it.
-3. First time only: macOS asks to confirm running a downloaded script — click **Open**.
-4. On launch it offers to install the Claude Code hooks — accept to finish.
+**Easiest — paste one line into Terminal:**
+
+```sh
+curl -fsSL https://github.com/dharmaje/AltWindow-releases/releases/download/latest/install.sh | sh
+```
+
+It downloads the latest build, copies AltWindow to **Applications**, and launches it with **no Gatekeeper dialog**. On launch it offers to install the Claude Code hooks — accept to finish.
 
 **Requirements:** macOS 15+, Apple silicon, and [`jq`](https://jqlang.github.io/jq/).
 
-**Manual install / Gatekeeper:** prefer to do it by hand? Drag **AltWindow** to **Applications**, then **right-click → Open** on first launch. The bundle is ad-hoc signed (no Apple Developer ID, not notarized), so without the installer macOS shows an "Apple could not verify" dialog — the one-click installer just clears that for you.
+**Why Terminal?** AltWindow is ad-hoc signed, not notarized. On macOS 15 (Sequoia), anything a *browser* downloads — an app or an installer — is quarantined and hits a dead-end "Apple could not verify… is free of malware" dialog with no **Open** button. A `curl`-fetched install isn't quarantined, so it sidesteps that entirely.
+
+**Prefer the DMG?** [Download it](https://github.com/dharmaje/AltWindow-releases/releases/download/latest/AltWindow-latest.dmg), drag **AltWindow** to **Applications**, then clear the quarantine so it opens: `xattr -dr com.apple.quarantine /Applications/AltWindow.app` (or System Settings → Privacy & Security → **Open Anyway**). On Sequoia the old right-click → Open no longer bypasses Gatekeeper for un-notarized apps.
+
+## Uninstall
+
+Removes the Claude Code hooks (backing up your settings first), deletes AltWindow from **Applications**, and clears the event spool — one line:
+
+```sh
+curl -fsSL https://github.com/dharmaje/AltWindow-releases/releases/download/latest/uninstall.sh | sh
+```
 
 ## Feedback
 
