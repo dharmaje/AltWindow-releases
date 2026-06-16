@@ -15,12 +15,13 @@ Public downloads for **AltWindow**, a native macOS **companion app** for Claude 
 ## Install
 
 1. Open the downloaded `.dmg`.
-2. Drag **AltWindow** to **Applications**.
-3. Launch it — it offers to install the Claude Code hooks on first run.
+2. Double-click **Install AltWindow.command** — it copies AltWindow to **Applications**, clears the download quarantine, and launches it.
+3. First time only: macOS asks to confirm running a downloaded script — click **Open**.
+4. On launch it offers to install the Claude Code hooks — accept to finish.
 
 **Requirements:** macOS 15+, Apple silicon, and [`jq`](https://jqlang.github.io/jq/).
 
-**Gatekeeper:** the bundle is ad-hoc signed (no Apple Developer ID), so on first launch **right-click → Open** to allow it.
+**Manual install / Gatekeeper:** prefer to do it by hand? Drag **AltWindow** to **Applications**, then **right-click → Open** on first launch. The bundle is ad-hoc signed (no Apple Developer ID, not notarized), so without the installer macOS shows an "Apple could not verify" dialog — the one-click installer just clears that for you.
 
 ## Feedback
 
