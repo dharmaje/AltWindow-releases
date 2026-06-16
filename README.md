@@ -4,6 +4,16 @@ Public downloads for **AltWindow**, a native macOS **companion app** for Claude 
 
 🌐 **[altwindow.com](https://altwindow.com)** · This repo hosts the public installers only; the app source is private.
 
+## What it does
+
+AltWindow renders live, independently managed macOS windows from Claude Code's hook events:
+
+- **Activity** — one row per tool call (running / done / failed) with expandable detail and colored diffs, grouped by subagent. It follows the tail as work streams in; scroll up to read back and a button resumes auto-scroll.
+- **Tasks** — a live checklist that **opens itself when tasks appear** and **highlights what just changed** (then fades), with checkbox status icons.
+- **Per-session windows** — pop any session into its own Activity + Tasks pair to lay several sessions out side-by-side or stacked. Always-on-top and transparency are **per window**.
+
+Your Claude Code client is never touched — no embedding, no patching; the companion only reads hook events.
+
 ## Download
 
 - **Latest build** (rolling, auto-updated on every change) — direct download, no login:
@@ -22,7 +32,7 @@ curl -fsSL https://github.com/dharmaje/AltWindow-releases/releases/download/late
 
 It downloads the latest build, copies AltWindow to **Applications**, and launches it with **no Gatekeeper dialog**. On launch it offers to install the Claude Code hooks — accept to finish.
 
-**Requirements:** macOS 15+, Apple silicon, and [`jq`](https://jqlang.github.io/jq/).
+**Requirements:** macOS 15+ and Apple silicon. ([`jq`](https://jqlang.github.io/jq/) is used by the hook installer and downloaded automatically — pinned and checksum-verified — if you don't already have it.)
 
 **Why Terminal?** AltWindow is ad-hoc signed, not notarized. On macOS 15 (Sequoia), anything a *browser* downloads — an app or an installer — is quarantined and hits a dead-end "Apple could not verify… is free of malware" dialog with no **Open** button. A `curl`-fetched install isn't quarantined, so it sidesteps that entirely.
 
