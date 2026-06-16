@@ -9,6 +9,8 @@ body:
         Thanks for taking the time to report a bug! Please fill out the fields below so we can reproduce and fix it quickly.
 
         > **Note:** This repo hosts the public AltWindow installers. The app source is private, but bug reports are very welcome here.
+
+        > ⚠️ **Privacy:** Issues are public. Don't paste secrets, API keys, access tokens, or personal data in logs or screenshots — redact anything sensitive first.
   - type: textarea
     id: what-happened
     attributes:
@@ -59,7 +61,7 @@ body:
     id: logs
     attributes:
       label: Logs / screenshots
-      description: Paste any relevant error output, console logs, or screenshots. Logs are automatically formatted into code, so no need for backticks.
+      description: Paste any relevant error output, console logs, or screenshots. Logs are automatically formatted into code, so no need for backticks. Remember to redact any secrets or personal data — this issue is public.
       render: shell
     validations:
       required: false
