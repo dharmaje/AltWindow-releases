@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AltWindow — a native macOS companion app for Claude Code</title>
+  <meta name="description" content="AltWindow renders live companion windows from Claude Code's hook events. Native macOS, free download." />
+  <meta property="og:title" content="AltWindow" />
+  <meta property="og:description" content="A native macOS companion app for Claude Code — live companion windows from hook events." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://altwindow.com" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect x='6' y='14' width='34' height='26' rx='4' fill='%235b8def'/><rect x='24' y='24' width='34' height='26' rx='4' fill='%23a0c4ff'/></svg>" />
+  <style>
+    :root {
+      --bg: #0e0f13;
+      --panel: #16181f;
+      --fg: #e7e9ee;
+      --muted: #9aa0ad;
+      --accent: #5b8def;
+      --border: #262a35;
+    }
+    @media (prefers-color-scheme: light) {
+      :root {
+        --bg: #f6f7f9; --panel: #ffffff; --fg: #1a1c22;
+        --muted: #5b6170; --accent: #2f6fe0; --border: #e3e6ec;
+      }
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--fg);
+      font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    .wrap { max-width: 760px; margin: 0 auto; padding: 72px 24px 96px; }
+    .logo { display: flex; align-items: center; gap: 12px; margin-bottom: 40px; }
+    .logo svg { width: 40px; height: 40px; }
+    .logo span { font-weight: 600; font-size: 18px; letter-spacing: -0.01em; }
+    h1 { font-size: clamp(34px, 6vw, 52px); line-height: 1.1; letter-spacing: -0.02em; margin: 0 0 18px; }
+    .lede { font-size: 19px; color: var(--muted); margin: 0 0 36px; max-width: 60ch; }
+    .cta { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; margin-bottom: 14px; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 9px;
+      background: var(--accent); color: #fff; text-decoration: none;
+      font-weight: 600; font-size: 16px; padding: 13px 22px; border-radius: 11px;
+      transition: transform .06s ease, opacity .15s ease;
+    }
+    .btn:hover { opacity: .92; }
+    .btn:active { transform: translateY(1px); }
+    .btn.secondary { background: transparent; color: var(--fg); border: 1px solid var(--border); }
+    .reqs { color: var(--muted); font-size: 14px; margin: 0 0 56px; }
+    .card {
+      background: var(--panel); border: 1px solid var(--border);
+      border-radius: 14px; padding: 24px 26px; margin: 18px 0;
+    }
+    .card h2 { font-size: 18px; margin: 0 0 12px; letter-spacing: -0.01em; }
+    .card ol, .card ul { margin: 0; padding-left: 20px; }
+    .card li { margin: 6px 0; color: var(--fg); }
+    .card li code, p code {
+      background: rgba(127,127,127,.16); padding: 1px 6px; border-radius: 5px;
+      font: 13px/1 ui-monospace, SFMono-Regular, Menlo, monospace;
+    }
+    a { color: var(--accent); }
+    .note { font-size: 14px; color: var(--muted); }
+    footer { margin-top: 64px; padding-top: 28px; border-top: 1px solid var(--border); font-size: 13px; color: var(--muted); }
+    footer a { color: var(--muted); }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <div class="logo">
+      <svg viewBox="0 0 64 64" aria-hidden="true">
+        <rect x="6" y="14" width="34" height="26" rx="4" fill="#5b8def"/>
+        <rect x="24" y="24" width="34" height="26" rx="4" fill="#a0c4ff"/>
+      </svg>
+      <span>AltWindow</span>
+    </div>
+
+    <h1>Live companion windows for Claude Code.</h1>
+    <p class="lede">
+      A native macOS app that renders <strong>independently managed windows</strong> —
+      Activity, Tasks, and more — live from Claude Code's hook events. Your Claude Code
+      client stays exactly as it is: no embedding, no patching. Just real native UI
+      with live state, in its own window.
+    </p>
+
+    <div class="cta">
+      <a class="btn" href="https://github.com/dharmaje/AltWindow-releases/releases/download/latest/AltWindow-latest.dmg">
+        Download for macOS
+      </a>
+      <a class="btn secondary" href="https://github.com/dharmaje/AltWindow-releases/releases">
+        All releases
+      </a>
+    </div>
+    <p class="reqs">Free · macOS 15+ · Apple silicon · requires <code>jq</code> · ad-hoc signed (Beta)</p>
+
+    <div class="card">
+      <h2>Install</h2>
+      <ol>
+        <li>Open the downloaded <code>.dmg</code>.</li>
+        <li>Drag <strong>AltWindow</strong> to <strong>Applications</strong>.</li>
+        <li>Launch it — it offers to install the Claude Code hooks on first run.</li>
+        <li>First launch only: <strong>right-click → Open</strong> to pass Gatekeeper (the app is ad-hoc signed).</li>
+      </ol>
+    </div>
+
+    <div class="card">
+      <h2>Builds</h2>
+      <ul>
+        <li><strong>Latest</strong> — a rolling build, auto-updated on every change. Newest code; may be rough.</li>
+        <li><strong>Tagged releases</strong> (<code>vX.Y.Z</code>) — stable, versioned builds, on the <a href="https://github.com/dharmaje/AltWindow-releases/releases">releases page</a>.</li>
+      </ul>
+    </div>
+
+    <footer>
+      <p>
+        AltWindow is an independent project by Jason Epel — not affiliated with, endorsed by,
+        or sponsored by Anthropic. "Claude" and "Claude Code" are trademarks of Anthropic, PBC.
+      </p>
+      <p>© 2026 Jason Epel · <a href="https://github.com/dharmaje/AltWindow-releases">GitHub</a> · <a href="https://github.com/dharmaje/AltWindow-releases/blob/main/LICENSE">License</a></p>
+    </footer>
+  </main>
+</body>
+</html>
