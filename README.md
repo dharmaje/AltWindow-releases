@@ -22,14 +22,14 @@ Public downloads for **AltWindow**, a native macOS **companion app** for Claude 
 
 **Gatekeeper:** the bundle is ad-hoc signed (no Apple Developer ID), so on first launch **right-click → Open** to allow it.
 
-## Reporting bugs
+## Feedback
 
-Found a problem or have an idea? Please file it on the [Issues](https://github.com/dharmaje/AltWindow-releases/issues) page:
+Bug reports and feature ideas are both very welcome — pick the right form and we'll take it from there:
 
-- 🐞 **[Report a bug](https://github.com/dharmaje/AltWindow-releases/issues/new?template=bug_report.yml)** — the form asks for your macOS version, AltWindow build, and repro steps.
-- 💡 **[Request a feature](https://github.com/dharmaje/AltWindow-releases/issues/new?template=feature_request.yml)**
+- 🐞 **[Report a bug](https://github.com/dharmaje/AltWindow-releases/issues/new?template=bug_report.yml)** — the form asks for your macOS version, AltWindow build, and repro steps. Before reporting, grab the newest [release](https://github.com/dharmaje/AltWindow-releases/releases) in case it's already fixed.
+- 💡 **[Request a feature](https://github.com/dharmaje/AltWindow-releases/issues/new?template=feature_request.yml)** — tell us the problem you'd like AltWindow to solve.
 
-Before reporting, grab the newest [release](https://github.com/dharmaje/AltWindow-releases/releases) — your issue may already be fixed.
+See the [reporting guide](https://github.com/dharmaje/AltWindow-releases/wiki/Reporting-Bugs) for tips on writing a useful report.
 
 ## License
 
