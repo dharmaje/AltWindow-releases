@@ -9,8 +9,8 @@ Public downloads for **AltWindow**, a native macOS **companion app** for Claude 
 AltWindow renders live, independently managed macOS windows from Claude Code's hook events:
 
 - **Activity** — one row per tool call (running / done / failed) with expandable detail and colored diffs, grouped by subagent. It follows the tail as work streams in; scroll up to read back and a button resumes auto-scroll.
-- **Tasks** — a live checklist that **opens itself when tasks appear** and **highlights what just changed** (then fades), with checkbox status icons.
-- **Per-session windows** — pop any session into its own Activity + Tasks pair to lay several sessions out side-by-side or stacked. Always-on-top and transparency are **per window**.
+- **Tasks** — a live, white-on-black checklist that **opens itself when tasks appear** and **highlights what just changed** (then fades), with checkbox status icons.
+- **Per-session windows** — split any session into its own Activity + Tasks pair to lay several sessions out side-by-side or stacked, then combine them back from any window. Jump straight to a window's paired Activity/Tasks window. Always-on-top and transparency are **per window**.
 
 Your Claude Code client is never touched — no embedding, no patching; the companion only reads hook events.
 
