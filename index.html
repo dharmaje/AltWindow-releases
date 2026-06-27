@@ -73,6 +73,22 @@
     .note { font-size: 14px; color: var(--muted); }
     footer { margin-top: 64px; padding-top: 28px; border-top: 1px solid var(--border); font-size: 13px; color: var(--muted); }
     footer a { color: var(--muted); }
+
+    /* ---- Showcase illustration (view-only mockup, see mockup.html) ---- */
+    .showcase { margin: 4px 0 52px; }
+    .showcase-cue { text-align: center; color: var(--muted); font-size: 14px; letter-spacing: .02em; margin: 0 0 16px; }
+    .showcase-cue span { display: inline-block; margin-left: 4px; animation: nudge 1.6s ease-in-out infinite; }
+    @keyframes nudge { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(3px); } }
+    /* break out of the 760px text column to a wider, more legible canvas */
+    .frame {
+      position: relative; left: 50%; transform: translateX(-50%);
+      width: min(94vw, 1320px); aspect-ratio: 1820 / 1000;
+      border-radius: 14px; overflow: hidden; border: 1px solid var(--border);
+      background: #0b0e14; box-shadow: 0 18px 50px rgba(0, 0, 0, .35);
+    }
+    .frame iframe { position: absolute; top: 0; left: 0; width: 1820px; height: 1000px; border: 0; transform-origin: top left; }
+    .showcase-cap { text-align: center; color: var(--muted); font-size: 13px; margin: 16px auto 0; max-width: 64ch; }
+    @media (prefers-reduced-motion: reduce) { .showcase-cue span { animation: none; } }
   </style>
 </head>
 <body>
@@ -103,6 +119,14 @@
       </a>
     </div>
     <p class="reqs">Free · macOS 15+ · Apple silicon · ad-hoc signed (Beta)</p>
+
+    <section class="showcase" aria-label="AltWindow in action">
+      <p class="showcase-cue">See it in action <span aria-hidden="true">↓</span></p>
+      <div class="frame" id="mockup-frame">
+        <iframe src="mockup.html" title="AltWindow companion windows — the Activity, Tasks, and Responses windows rendered live from Claude Code's hook events, with callouts explaining each surface" loading="lazy" scrolling="no" tabindex="-1"></iframe>
+      </div>
+      <p class="showcase-cap">A look at the companion windows — <strong>Activity</strong>, <strong>Tasks</strong> (white-on-black), and <strong>Responses</strong> — driven live from Claude Code's hook events, alongside your untouched terminal.</p>
+    </section>
 
     <div class="card">
       <h2>What you get</h2>
@@ -209,6 +233,17 @@
           fallback();
         }
       });
+    })();
+
+    // Scale the fixed-size mockup iframe to fit its responsive frame.
+    (function () {
+      var frame = document.getElementById('mockup-frame');
+      if (!frame) return;
+      var iframe = frame.querySelector('iframe');
+      function fit() { iframe.style.transform = 'scale(' + (frame.clientWidth / 1820) + ')'; }
+      fit();
+      if (window.ResizeObserver) { new ResizeObserver(fit).observe(frame); }
+      else { window.addEventListener('resize', fit); }
     })();
   </script>
 </body>

@@ -1,0 +1,539 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AltWindow mockup</title>
+<style>html,body{margin:0;background:#0b0e14;width:1820px;height:1000px;overflow:hidden}.sc-placeholder { background: rgba(255, 255, 255, 0.3); border: 1px solid rgba(0, 0, 0, 0.5); border-radius: 2px; box-sizing: border-box; overflow: hidden; }
+@keyframes sc-shine { 
+  0% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+html.sc-dc-streaming .sc-placeholder, html.sc-dc-streaming .sc-interp.sc-missing { position: relative; background: color-mix(in srgb, currentcolor 5%, transparent); border-color: transparent; }
+html.sc-dc-streaming .sc-placeholder::before, html.sc-dc-streaming .sc-interp.sc-missing::before { content: ""; position: absolute; inset: 0px; pointer-events: none; background: linear-gradient(90deg, rgba(217, 119, 87, 0) 25%, rgba(247, 225, 211, 0.95) 37%, rgba(217, 119, 87, 0) 63%) 0% 0% / 400% 100%; animation: 1.4s ease 0s infinite normal none running sc-shine; }
+html.sc-dc-streaming .sc-placeholder:nth-child(n+9 of .sc-placeholder)::before, html.sc-dc-streaming .sc-interp.sc-missing:nth-child(n+9 of .sc-interp.sc-missing)::before { animation: auto ease 0s 1 normal none running none; background: color-mix(in srgb, currentcolor 8%, transparent); }
+.sc-placeholder-error { padding: 4px 8px; font: 11px / 1.4 ui-monospace, monospace; color: rgba(0, 0, 0, 0.7); word-break: break-word; }
+.sc-interp.sc-missing { display: inline-block; width: 2em; height: 1em; overflow: hidden; vertical-align: text-bottom; background: rgba(255, 255, 255, 0.3); border: 1px solid rgba(0, 0, 0, 0.5); border-radius: 2px; box-sizing: border-box; color: transparent; user-select: none; }
+.sc-interp.sc-unresolved { font-family: ui-monospace, monospace; font-size: 0.85em; color: rgba(0, 0, 0, 0.5); background: rgba(0, 0, 0, 0.05); border-radius: 3px; padding: 0px 3px; }
+.sc-host.sc-has-error { position: relative; }
+.sc-logic-error { position: absolute; top: 8px; left: 8px; z-index: 2147483647; max-width: 60ch; padding: 6px 10px; background: rgb(176, 0, 32); color: rgb(255, 255, 255); font: 12px / 1.4 ui-monospace, monospace; border-radius: 4px; white-space: pre-wrap; pointer-events: none; }
+@media print {
+  @page { margin: 0.5cm; }
+  figure, table { break-inside: avoid; }
+  #dc-root, #dc-root > .sc-host { height: auto; }
+  *, ::before, ::after { print-color-adjust: exact; backdrop-filter: none !important; animation-delay: -99s !important; animation-duration: 0.001s !important; animation-iteration-count: 1 !important; animation-fill-mode: both !important; animation-play-state: running !important; transition-duration: 0s !important; }
+}
+x-dc { display: none !important; }
+@keyframes ccc-spin { 
+  100% { transform: rotate(360deg); }
+}
+@keyframes ccc-blink { 
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+* { box-sizing: border-box; }
+html, body { margin: 0px; padding: 0px; }
+</style>
+</head><body><div id="dc-root"><div class="sc-host" data-sc-name="index"><div data-dc-tpl="2" style="width: 1820px; height: 1000px; position: relative; overflow: hidden; font-family: -apple-system, &quot;SF Pro Display&quot;, &quot;SF Pro Text&quot;, system-ui, sans-serif; background: linear-gradient(150deg, rgb(10, 61, 74) 0%, rgb(14, 85, 102) 22%, rgb(31, 126, 134) 46%, rgb(58, 157, 143) 64%, rgb(111, 185, 143) 82%, rgb(200, 168, 122) 100%);">
+
+  <div data-dc-tpl="3" style="position: absolute; width: 820px; height: 820px; left: -200px; top: -240px; border-radius: 50%; background: radial-gradient(circle, rgba(255, 255, 255, 0.2), transparent 60%); filter: blur(22px);"></div>
+  <div data-dc-tpl="4" style="position: absolute; width: 720px; height: 720px; right: -200px; bottom: -260px; border-radius: 50%; background: radial-gradient(circle, rgba(255, 220, 170, 0.18), transparent 62%); filter: blur(22px);"></div>
+
+  
+  <div data-dc-tpl="5" style="position: absolute; top: 0px; left: 0px; right: 0px; height: 26px; display: flex; align-items: center; gap: 18px; padding: 0px 14px; background: rgba(20, 30, 34, 0.42); backdrop-filter: blur(22px) saturate(1.3); color: rgb(255, 255, 255); font-size: 13px; z-index: 50;">
+    <svg data-dc-tpl="6" width="14" height="14" viewBox="0 0 16 16" fill="#fff" style="opacity: 0.95;"><path data-dc-tpl="7" d="M11.05 8.45c-.02-1.6 1.31-2.37 1.37-2.41-.75-1.1-1.91-1.25-2.32-1.27-.99-.1-1.93.58-2.43.58-.5 0-1.28-.57-2.1-.55-1.08.02-2.07.63-2.63 1.6-1.12 1.95-.29 4.83.8 6.41.53.77 1.17 1.64 2 1.61.8-.03 1.1-.52 2.07-.52.96 0 1.24.52 2.09.5.86-.01 1.41-.79 1.94-1.56.61-.9.86-1.77.87-1.81-.02-.01-1.67-.64-1.69-2.59zM9.5 3.78c.44-.54.74-1.28.66-2.03-.64.03-1.41.43-1.87.96-.41.47-.77 1.23-.67 1.95.71.06 1.44-.36 1.88-.88z"></path></svg>
+    <span data-dc-tpl="8" style="font-weight: 700;">AltWindow</span>
+    <span data-dc-tpl="9" style="font-weight: 400; opacity: 0.85;">File</span>
+    <span data-dc-tpl="10" style="font-weight: 400; opacity: 0.85;">Edit</span>
+    <span data-dc-tpl="11" style="font-weight: 400; opacity: 0.85;">Window</span>
+    <span data-dc-tpl="12" style="font-weight: 400; opacity: 0.85;">Help</span>
+    <div data-dc-tpl="13" style="flex: 1 1 0%;"></div>
+    <div data-dc-tpl="14" title="3 active sessions" style="display: flex; align-items: center; gap: 6px; opacity: 0.98; padding: 1px 7px; border-radius: 6px; background: rgba(255, 255, 255, 0.24);">
+      <svg data-dc-tpl="15" width="17" height="13" viewBox="0 0 20 15" fill="none"><rect data-dc-tpl="16" x="0.6" y="0.6" width="13" height="10" rx="1.6" stroke="#fff" stroke-width="1.2"></rect><rect data-dc-tpl="17" x="6" y="4" width="13" height="10" rx="1.6" fill="rgba(0,0,0,0.35)" stroke="#fff" stroke-width="1.2"></rect></svg>
+      <span data-dc-tpl="18" style="font-size: 12px; font-weight: 600;">3</span>
+    </div>
+    <svg data-dc-tpl="19" width="16" height="13" viewBox="0 0 18 14" fill="#fff"><path data-dc-tpl="20" d="M9 11.5a1 1 0 100 2 1 1 0 000-2zm0-3.2c.9 0 1.74.36 2.36.97l1.06-1.06A4.8 4.8 0 009 6.8c-1.33 0-2.6.55-3.42 1.41l1.06 1.06A3.3 3.3 0 019 8.3zM9 3.5c2.2 0 4.3.86 5.85 2.4l1.06-1.06A9.7 9.7 0 009 2C6.3 2 3.7 3.06 1.79 4.84L2.85 5.9A8.2 8.2 0 019 3.5z"></path></svg>
+    <svg data-dc-tpl="21" width="22" height="11" viewBox="0 0 26 13" fill="none"><rect data-dc-tpl="22" x="0.6" y="0.6" width="22" height="11.8" rx="3" stroke="#fff" stroke-opacity="0.6" stroke-width="1"></rect><rect data-dc-tpl="23" x="2" y="2" width="16" height="9" rx="1.6" fill="#fff"></rect><rect data-dc-tpl="24" x="23.4" y="4" width="1.6" height="5" rx="0.8" fill="#fff" fill-opacity="0.6"></rect></svg>
+    <span data-dc-tpl="25" style="font-weight: 400; opacity: 0.92;">Fri 9:41 AM</span>
+  </div>
+
+  
+  <div data-dc-tpl="26" style="position: absolute; left: 50px; top: 120px; width: 470px; height: 470px; z-index: 18; border-radius: 11px; box-shadow: rgba(0, 0, 0, 0.46) 0px 28px 70px, rgba(0, 0, 0, 0.28) 0px 2px 8px; border: 0.5px solid rgba(255, 255, 255, 0.12); overflow: hidden; background: rgb(23, 24, 27);">
+    <div data-dc-tpl="27" style="position: relative; height: 100%; display: flex; flex-direction: column;">
+      <div data-dc-tpl="28" style="height: 42px; display: flex; align-items: center; gap: 10px; padding: 0px 13px; background: rgb(32, 33, 37); border-bottom: 0.5px solid rgba(255, 255, 255, 0.07);">
+        <div data-dc-tpl="29" style="display: flex; gap: 8px;">
+          <div data-dc-tpl="30" style="width: 12px; height: 12px; border-radius: 50%; background: rgb(255, 95, 87);"></div>
+          <div data-dc-tpl="31" style="width: 12px; height: 12px; border-radius: 50%; background: rgb(254, 188, 46);"></div>
+          <div data-dc-tpl="32" style="width: 12px; height: 12px; border-radius: 50%; background: rgb(40, 200, 64);"></div>
+        </div>
+        <div data-dc-tpl="33" style="flex: 1 1 0%; text-align: center; font-size: 12.5px; font-weight: 500; color: rgba(255, 255, 255, 0.62); font-family: ui-monospace, &quot;SF Mono&quot;, monospace;">claude — AltWindow</div>
+      </div>
+      <div data-dc-tpl="34" style="flex: 1 1 0%; overflow: hidden; padding: 14px 16px; font-family: ui-monospace, &quot;SF Mono&quot;, monospace; font-size: 12px; line-height: 1.55; color: rgb(214, 214, 214);">
+        <div data-dc-tpl="35" style="color: rgb(127, 177, 255);">&gt; Tune the Tasks window highlight so white text stays legible on black, then run the tests.</div>
+        <div data-dc-tpl="36" style="height: 11px;"></div>
+        <div data-dc-tpl="37" style="display: flex; gap: 8px;"><span data-dc-tpl="38" style="color: rgb(217, 119, 87);">⏺</span><span data-dc-tpl="39">I'll adjust <span data-dc-tpl="40" style="color: rgb(255, 255, 255);">TaskPalette</span>, then build and run the suite.</span></div>
+        <div data-dc-tpl="41" style="height: 10px;"></div>
+        <div data-dc-tpl="42" style="display: flex; gap: 8px;"><span data-dc-tpl="43" style="color: rgb(217, 119, 87);">⏺</span><span data-dc-tpl="44" style="color: rgb(234, 234, 234);">Bash<span data-dc-tpl="45" style="color: rgb(154, 154, 154);">(swift build)</span></span></div>
+        <div data-dc-tpl="46" style="padding-left: 18px; color: rgb(127, 132, 136);">⎿  Build complete! (12.84s)</div>
+        <div data-dc-tpl="47" style="height: 7px;"></div>
+        <div data-dc-tpl="48" style="display: flex; gap: 8px;"><span data-dc-tpl="49" style="color: rgb(217, 119, 87);">⏺</span><span data-dc-tpl="50" style="color: rgb(234, 234, 234);">Edit<span data-dc-tpl="51" style="color: rgb(154, 154, 154);">(TasksView.swift)</span></span></div>
+        <div data-dc-tpl="52" style="padding-left: 18px; color: rgb(127, 132, 136);">⎿  Updated <span data-dc-tpl="53" style="color: rgb(78, 192, 111);">+1</span> <span data-dc-tpl="54" style="color: rgb(226, 112, 106);">−1</span></div>
+        <div data-dc-tpl="55" style="height: 7px;"></div>
+        <div data-dc-tpl="56" style="display: flex; gap: 8px;"><span data-dc-tpl="57" style="color: rgb(217, 119, 87);">⏺</span><span data-dc-tpl="58" style="color: rgb(234, 234, 234);">Task<span data-dc-tpl="59" style="color: rgb(154, 154, 154);">(Explore)</span></span></div>
+        <div data-dc-tpl="60" style="padding-left: 18px; color: rgb(127, 132, 136);">⎿  Done (3 tool uses)</div>
+        <div data-dc-tpl="61" style="height: 7px;"></div>
+        <div data-dc-tpl="62" style="display: flex; gap: 8px;"><span data-dc-tpl="63" style="color: rgb(217, 119, 87);">⏺</span><span data-dc-tpl="64" style="color: rgb(234, 234, 234);">Bash<span data-dc-tpl="65" style="color: rgb(154, 154, 154);">(scripts/test.sh)</span></span></div>
+        <div data-dc-tpl="66" style="padding-left: 18px; color: rgb(127, 132, 136);">⎿  Running…<span data-dc-tpl="67" style="display: inline-block; width: 6px; height: 12px; margin-left: 3px; vertical-align: -2px; background: rgb(214, 214, 214); animation: 1s step-end 0s infinite normal none running ccc-blink;"></span></div>
+      </div>
+      <div data-dc-tpl="68" style="margin: 0px 13px 13px; border: 1px solid rgba(255, 255, 255, 0.16); border-radius: 8px; padding: 8px 11px; display: flex; align-items: center; gap: 8px; font-family: ui-monospace, &quot;SF Mono&quot;, monospace; font-size: 12px; color: rgba(255, 255, 255, 0.5);">
+        <span data-dc-tpl="69" style="color: rgb(217, 119, 87);">&gt;</span><span data-dc-tpl="70">Ask Claude to keep going…</span>
+      </div>
+    </div>
+  </div>
+
+  
+  <div data-dc-tpl="71" style="position: absolute; border-radius: 11px; box-shadow: rgba(0, 0, 0, 0.42) 0px 28px 70px, rgba(0, 0, 0, 0.25) 0px 2px 8px; border: 0.5px solid rgba(255, 255, 255, 0.28); overflow: hidden; left: 552px; top: 120px; width: 560px; height: 760px; z-index: 20; transition: 0.35s;">
+    <div data-dc-tpl="72" style="position: absolute; inset: 0px; background: rgba(228, 247, 244, 0.55); backdrop-filter: blur(34px) saturate(1.5);"></div>
+    <div data-dc-tpl="73" style="position: absolute; inset: 0px; background: linear-gradient(135deg, rgba(41, 188, 171, 0.34), rgba(41, 188, 171, 0.07));"></div>
+    <div data-dc-tpl="74" style="position: absolute; inset: 0px; background: linear-gradient(rgba(255, 255, 255, 0.3), transparent 42%);"></div>
+    <div data-dc-tpl="75" style="position: relative; height: 100%; display: flex; flex-direction: column;">
+      <div data-dc-tpl="76" style="height: 52px; display: flex; align-items: center; gap: 10px; padding: 0px 14px; border-bottom: 0.5px solid rgba(0, 0, 0, 0.1);">
+        <div data-dc-tpl="77" style="display: flex; gap: 8px; align-items: center;">
+          <div data-dc-tpl="78" style="width: 12px; height: 12px; border-radius: 50%; background: rgb(255, 95, 87); box-shadow: rgba(0, 0, 0, 0.18) 0px 0px 0px 0.5px inset;"></div>
+          <div data-dc-tpl="79" style="width: 12px; height: 12px; border-radius: 50%; background: rgb(254, 188, 46); box-shadow: rgba(0, 0, 0, 0.18) 0px 0px 0px 0.5px inset;"></div>
+          <div data-dc-tpl="80" style="width: 12px; height: 12px; border-radius: 50%; background: rgb(40, 200, 64); box-shadow: rgba(0, 0, 0, 0.18) 0px 0px 0px 0.5px inset;"></div>
+        </div>
+        
+          <div data-dc-tpl="82" style="margin-left: 6px; display: flex; align-items: center; gap: 6px; height: 26px; padding: 0px 11px; border-radius: 7px; background: rgba(255, 255, 255, 0.55); border: 0.5px solid rgba(0, 0, 0, 0.1); color: rgb(22, 64, 59); font-size: 12.5px; font-weight: 600; white-space: nowrap;">
+            <svg data-dc-tpl="83" width="14" height="13" viewBox="0 0 16 14" fill="none"><rect data-dc-tpl="84" x="0.6" y="3.4" width="11" height="9.5" rx="1.6" stroke="#16403b" stroke-width="1.1"></rect><rect data-dc-tpl="85" x="4.4" y="0.6" width="11" height="9.5" rx="1.6" fill="rgba(228,247,244,0.9)" stroke="#16403b" stroke-width="1.1"></rect></svg>
+            <span class="sc-interp">● AltWindow · 38c68817</span>
+            <svg data-dc-tpl="86" width="9" height="9" viewBox="0 0 10 7" fill="none" style="margin-left: 1px; opacity: 0.65;"><path data-dc-tpl="87" d="M1 1l4 4 4-4" stroke="#16403b" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          </div>
+        
+        
+        <div data-dc-tpl="93" style="flex: 1 1 0%; text-align: center; font-size: 13.5px; font-weight: 600; color: rgb(22, 64, 59); letter-spacing: 0.2px;"><span class="sc-interp">Activity</span></div>
+        <div data-dc-tpl="94" style="width: 30px; height: 26px; display: flex; align-items: center; justify-content: center; border-radius: 7px; background: rgba(255, 255, 255, 0.4); border: 0.5px solid rgba(0, 0, 0, 0.08);">
+          <svg data-dc-tpl="95" width="17" height="17" viewBox="0 0 18 18" fill="none"><circle data-dc-tpl="96" cx="9" cy="9" r="7.6" stroke="#16403b" stroke-width="1.1"></circle><circle data-dc-tpl="97" cx="5.5" cy="9" r="1.05" fill="#16403b"></circle><circle data-dc-tpl="98" cx="9" cy="9" r="1.05" fill="#16403b"></circle><circle data-dc-tpl="99" cx="12.5" cy="9" r="1.05" fill="#16403b"></circle></svg>
+        </div>
+      </div>
+      <div data-dc-tpl="100" style="flex: 1 1 0%; overflow: hidden; position: relative; padding: 7px 6px;">
+        <div data-dc-tpl="101" style="display: flex; flex-direction: column;">
+          
+            <div data-dc-tpl="103" style="border-radius: 7px; padding: 6px 8px;">
+              <div data-dc-tpl="104" style="display: flex; align-items: center; gap: 8px; font-size: 13px; color: rgb(22, 64, 59);">
+                
+                
+                  <svg data-dc-tpl="109" width="9" height="9" viewBox="0 0 10 10" fill="none" style="flex: 0 0 auto; opacity: 0.55;"><path data-dc-tpl="110" d="M3 1l4 4-4 4" stroke="#16403b" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                
+                <span data-dc-tpl="111" style="flex: 0 0 auto; width: 15px; height: 15px; display: inline-flex; align-items: center; justify-content: center;">
+                  
+                  
+                    <svg data-dc-tpl="115" width="15" height="15" viewBox="0 0 16 16"><circle data-dc-tpl="116" cx="8" cy="8" r="8" fill="#30C95B"></circle><path data-dc-tpl="117" d="M4.6 8.2l2.1 2.1 4.7-4.7" stroke="#fff" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                  
+                  
+                </span>
+                <span data-dc-tpl="122" style="font-weight: 600; flex: 0 0 auto;"><span class="sc-interp">Bash</span></span>
+                <span data-dc-tpl="123" style="color: rgba(22, 64, 59, 0.62); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex: 1 1 0%; min-width: 0px;"><span class="sc-interp">Bash(swift build)</span></span>
+                <span data-dc-tpl="124" style="flex: 0 0 auto; font-size: 11px; font-variant-numeric: tabular-nums; color: rgba(22, 64, 59, 0.5); font-family: ui-monospace, &quot;SF Mono&quot;, monospace;"><span class="sc-interp">2.3s</span></span>
+              </div>
+              
+            </div>
+          
+            <div data-dc-tpl="103" style="border-radius: 7px; padding: 6px 8px;">
+              <div data-dc-tpl="104" style="display: flex; align-items: center; gap: 8px; font-size: 13px; color: rgb(22, 64, 59);">
+                
+                
+                  <svg data-dc-tpl="109" width="9" height="9" viewBox="0 0 10 10" fill="none" style="flex: 0 0 auto; opacity: 0.55;"><path data-dc-tpl="110" d="M3 1l4 4-4 4" stroke="#16403b" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                
+                <span data-dc-tpl="111" style="flex: 0 0 auto; width: 15px; height: 15px; display: inline-flex; align-items: center; justify-content: center;">
+                  
+                  
+                    <svg data-dc-tpl="115" width="15" height="15" viewBox="0 0 16 16"><circle data-dc-tpl="116" cx="8" cy="8" r="8" fill="#30C95B"></circle><path data-dc-tpl="117" d="M4.6 8.2l2.1 2.1 4.7-4.7" stroke="#fff" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                  
+                  
+                </span>
+                <span data-dc-tpl="122" style="font-weight: 600; flex: 0 0 auto;"><span class="sc-interp">Read</span></span>
+                <span data-dc-tpl="123" style="color: rgba(22, 64, 59, 0.62); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex: 1 1 0%; min-width: 0px;"><span class="sc-interp">Read(~/dev/AltWindow/Sources/AltWindow/Theme.swift)</span></span>
+                <span data-dc-tpl="124" style="flex: 0 0 auto; font-size: 11px; font-variant-numeric: tabular-nums; color: rgba(22, 64, 59, 0.5); font-family: ui-monospace, &quot;SF Mono&quot;, monospace;"><span class="sc-interp">118ms</span></span>
+              </div>
+              
+            </div>
+          
+            <div data-dc-tpl="103" style="border-radius: 7px; padding: 6px 8px;">
+              <div data-dc-tpl="104" style="display: flex; align-items: center; gap: 8px; font-size: 13px; color: rgb(22, 64, 59);">
+                
+                  <svg data-dc-tpl="106" width="9" height="9" viewBox="0 0 10 10" fill="none" style="flex: 0 0 auto; opacity: 0.55;"><path data-dc-tpl="107" d="M1 3l4 4 4-4" stroke="#16403b" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                
+                
+                <span data-dc-tpl="111" style="flex: 0 0 auto; width: 15px; height: 15px; display: inline-flex; align-items: center; justify-content: center;">
+                  
+                  
+                    <svg data-dc-tpl="115" width="15" height="15" viewBox="0 0 16 16"><circle data-dc-tpl="116" cx="8" cy="8" r="8" fill="#30C95B"></circle><path data-dc-tpl="117" d="M4.6 8.2l2.1 2.1 4.7-4.7" stroke="#fff" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                  
+                  
+                </span>
+                <span data-dc-tpl="122" style="font-weight: 600; flex: 0 0 auto;"><span class="sc-interp">Edit</span></span>
+                <span data-dc-tpl="123" style="color: rgba(22, 64, 59, 0.62); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex: 1 1 0%; min-width: 0px;"><span class="sc-interp">Edit(Sources/AltWindow/TasksView.swift)</span></span>
+                <span data-dc-tpl="124" style="flex: 0 0 auto; font-size: 11px; font-variant-numeric: tabular-nums; color: rgba(22, 64, 59, 0.5); font-family: ui-monospace, &quot;SF Mono&quot;, monospace;"><span class="sc-interp">342ms</span></span>
+              </div>
+              
+                <div data-dc-tpl="126" style="margin: 8px 0px 4px 25px;">
+                  
+                    <div data-dc-tpl="128">
+                      
+                        <div data-dc-tpl="130" style="font-family: ui-monospace, &quot;SF Mono&quot;, monospace; font-size: 11.5px; line-height: 1.55; color: rgba(22, 64, 59, 0.6); background: transparent; padding: 0px 6px; white-space: pre;"><span class="sc-interp">  private enum TaskPalette {</span></div>
+                      
+                        <div data-dc-tpl="130" style="font-family: ui-monospace, &quot;SF Mono&quot;, monospace; font-size: 11.5px; line-height: 1.55; color: rgb(192, 57, 43); background: rgba(255, 69, 58, 0.14); padding: 0px 6px; white-space: pre;"><span class="sc-interp">-     static let highlight = Color(red: 1.0, green: 0.8, blue: 0.3)</span></div>
+                      
+                        <div data-dc-tpl="130" style="font-family: ui-monospace, &quot;SF Mono&quot;, monospace; font-size: 11.5px; line-height: 1.55; color: rgb(28, 125, 62); background: rgba(48, 201, 91, 0.16); padding: 0px 6px; white-space: pre;"><span class="sc-interp">+     static let highlight = Color(red: 1.0, green: 0.78, blue: 0.28)</span></div>
+                      
+                        <div data-dc-tpl="130" style="font-family: ui-monospace, &quot;SF Mono&quot;, monospace; font-size: 11.5px; line-height: 1.55; color: rgba(22, 64, 59, 0.6); background: transparent; padding: 0px 6px; white-space: pre;"><span class="sc-interp">      static let done = Color(red: 0.36, green: 0.92, blue: 0.55)</span></div>
+                      
+                    </div>
+                  
+                  
+                  
+                </div>
+              
+            </div>
+          
+            <div data-dc-tpl="103" style="border-radius: 7px; padding: 6px 8px;">
+              <div data-dc-tpl="104" style="display: flex; align-items: center; gap: 8px; font-size: 13px; color: rgb(22, 64, 59);">
+                
+                
+                  <svg data-dc-tpl="109" width="9" height="9" viewBox="0 0 10 10" fill="none" style="flex: 0 0 auto; opacity: 0.55;"><path data-dc-tpl="110" d="M3 1l4 4-4 4" stroke="#16403b" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                
+                <span data-dc-tpl="111" style="flex: 0 0 auto; width: 15px; height: 15px; display: inline-flex; align-items: center; justify-content: center;">
+                  
+                  
+                    <svg data-dc-tpl="115" width="15" height="15" viewBox="0 0 16 16"><circle data-dc-tpl="116" cx="8" cy="8" r="8" fill="#30C95B"></circle><path data-dc-tpl="117" d="M4.6 8.2l2.1 2.1 4.7-4.7" stroke="#fff" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                  
+                  
+                </span>
+                <span data-dc-tpl="122" style="font-weight: 600; flex: 0 0 auto;"><span class="sc-interp">Grep</span></span>
+                <span data-dc-tpl="123" style="color: rgba(22, 64, 59, 0.62); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex: 1 1 0%; min-width: 0px;"><span class="sc-interp">Grep(TaskPalette)</span></span>
+                <span data-dc-tpl="124" style="flex: 0 0 auto; font-size: 11px; font-variant-numeric: tabular-nums; color: rgba(22, 64, 59, 0.5); font-family: ui-monospace, &quot;SF Mono&quot;, monospace;"><span class="sc-interp">64ms</span></span>
+              </div>
+              
+            </div>
+          
+            <div data-dc-tpl="103" style="border-radius: 7px; padding: 6px 8px;">
+              <div data-dc-tpl="104" style="display: flex; align-items: center; gap: 8px; font-size: 13px; color: rgb(22, 64, 59);">
+                
+                  <svg data-dc-tpl="106" width="9" height="9" viewBox="0 0 10 10" fill="none" style="flex: 0 0 auto; opacity: 0.55;"><path data-dc-tpl="107" d="M1 3l4 4 4-4" stroke="#16403b" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                
+                
+                <span data-dc-tpl="111" style="flex: 0 0 auto; width: 15px; height: 15px; display: inline-flex; align-items: center; justify-content: center;">
+                  
+                  
+                  
+                    <svg data-dc-tpl="119" width="15" height="15" viewBox="0 0 16 16"><circle data-dc-tpl="120" cx="8" cy="8" r="8" fill="#FF453A"></circle><path data-dc-tpl="121" d="M5.4 5.4l5.2 5.2M10.6 5.4l-5.2 5.2" stroke="#fff" stroke-width="1.6" stroke-linecap="round"></path></svg>
+                  
+                </span>
+                <span data-dc-tpl="122" style="font-weight: 600; flex: 0 0 auto;"><span class="sc-interp">Bash</span></span>
+                <span data-dc-tpl="123" style="color: rgba(22, 64, 59, 0.62); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex: 1 1 0%; min-width: 0px;"><span class="sc-interp">Bash(ls /nonexistent-path-xyz)</span></span>
+                <span data-dc-tpl="124" style="flex: 0 0 auto; font-size: 11px; font-variant-numeric: tabular-nums; color: rgba(22, 64, 59, 0.5); font-family: ui-monospace, &quot;SF Mono&quot;, monospace;"><span class="sc-interp">41ms</span></span>
+              </div>
+              
+                <div data-dc-tpl="126" style="margin: 8px 0px 4px 25px;">
+                  
+                  
+                    <div data-dc-tpl="132" style="font-family: ui-monospace, &quot;SF Mono&quot;, monospace; font-size: 11.5px; line-height: 1.55; color: rgba(22, 64, 59, 0.78); white-space: pre-wrap;"><span class="sc-interp">command: ls /nonexistent-path-xyz</span></div>
+                  
+                  
+                    <div data-dc-tpl="134" style="margin-top: 8px; font-size: 9.5px; letter-spacing: 0.7px; font-weight: 700; color: rgba(22, 64, 59, 0.5);">RESULT</div>
+                    <div data-dc-tpl="135" style="font-family: ui-monospace, &quot;SF Mono&quot;, monospace; font-size: 11.5px; line-height: 1.55; color: rgba(22, 64, 59, 0.78); white-space: pre-wrap;"><span class="sc-interp">Exit code 1
+ls: /nonexistent-path-xyz: No such file or directory</span></div>
+                  
+                </div>
+              
+            </div>
+          
+            <div data-dc-tpl="103" style="border-radius: 7px; padding: 6px 8px;">
+              <div data-dc-tpl="104" style="display: flex; align-items: center; gap: 8px; font-size: 13px; color: rgb(22, 64, 59);">
+                
+                
+                  <svg data-dc-tpl="109" width="9" height="9" viewBox="0 0 10 10" fill="none" style="flex: 0 0 auto; opacity: 0.55;"><path data-dc-tpl="110" d="M3 1l4 4-4 4" stroke="#16403b" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                
+                <span data-dc-tpl="111" style="flex: 0 0 auto; width: 15px; height: 15px; display: inline-flex; align-items: center; justify-content: center;">
+                  
+                    <span data-dc-tpl="113" style="width: 12px; height: 12px; border-radius: 50%; border-width: 2px; border-style: solid; border-color: rgb(22, 64, 59) rgba(22, 64, 59, 0.25) rgba(22, 64, 59, 0.25); border-image: initial; display: inline-block; animation: 0.8s linear 0s infinite normal none running ccc-spin;"></span>
+                  
+                  
+                  
+                </span>
+                <span data-dc-tpl="122" style="font-weight: 600; flex: 0 0 auto;"><span class="sc-interp">Bash</span></span>
+                <span data-dc-tpl="123" style="color: rgba(22, 64, 59, 0.62); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex: 1 1 0%; min-width: 0px;"><span class="sc-interp">Bash(scripts/test.sh)</span></span>
+                <span data-dc-tpl="124" style="flex: 0 0 auto; font-size: 11px; font-variant-numeric: tabular-nums; color: rgba(22, 64, 59, 0.5); font-family: ui-monospace, &quot;SF Mono&quot;, monospace;"><span class="sc-interp"></span></span>
+              </div>
+              
+            </div>
+          
+          <div data-dc-tpl="136" style="border-radius: 7px; padding: 6px 8px;">
+            <div data-dc-tpl="137" style="display: flex; align-items: center; gap: 7px; font-size: 13px; color: rgb(22, 64, 59);">
+              
+                <svg data-dc-tpl="139" width="9" height="9" viewBox="0 0 10 10" fill="none" style="flex: 0 0 auto; opacity: 0.55;"><path data-dc-tpl="140" d="M1 3l4 4 4-4" stroke="#16403b" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+              
+              
+              <span data-dc-tpl="144" style="flex: 0 0 auto; width: 15px; height: 15px; display: inline-flex; align-items: center; justify-content: center;">
+                <span data-dc-tpl="145" style="width: 12px; height: 12px; border-radius: 50%; border-width: 2px; border-style: solid; border-color: rgb(22, 64, 59) rgba(22, 64, 59, 0.25) rgba(22, 64, 59, 0.25); border-image: initial; display: inline-block; animation: 0.8s linear 0s infinite normal none running ccc-spin;"></span>
+              </span>
+              <span data-dc-tpl="146" style="font-weight: 700;">Explore</span>
+              <span data-dc-tpl="147" style="font-size: 11px; color: rgba(22, 64, 59, 0.5);">3</span>
+            </div>
+            
+              <div data-dc-tpl="149" style="margin-left: 16px; border-left: 1.5px solid rgba(22, 64, 59, 0.12); padding-left: 6px; margin-top: 2px;">
+                
+                  <div data-dc-tpl="151" style="display: flex; align-items: center; gap: 8px; font-size: 13px; color: rgb(22, 64, 59); padding: 5px 8px;">
+                    <svg data-dc-tpl="152" width="9" height="9" viewBox="0 0 10 10" fill="none" style="flex: 0 0 auto; opacity: 0.4;"><path data-dc-tpl="153" d="M3 1l4 4-4 4" stroke="#16403b" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                    <span data-dc-tpl="154" style="flex: 0 0 auto; width: 15px; height: 15px; display: inline-flex; align-items: center;">
+                      <svg data-dc-tpl="155" width="15" height="15" viewBox="0 0 16 16"><circle data-dc-tpl="156" cx="8" cy="8" r="8" fill="#30C95B"></circle><path data-dc-tpl="157" d="M4.6 8.2l2.1 2.1 4.7-4.7" stroke="#fff" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                    </span>
+                    <span data-dc-tpl="158" style="font-weight: 600; flex: 0 0 auto;"><span class="sc-interp">Glob</span></span>
+                    <span data-dc-tpl="159" style="color: rgba(22, 64, 59, 0.62); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex: 1 1 0%; min-width: 0px;"><span class="sc-interp">Glob(**/*.swift)</span></span>
+                    <span data-dc-tpl="160" style="flex: 0 0 auto; font-size: 11px; font-variant-numeric: tabular-nums; color: rgba(22, 64, 59, 0.5); font-family: ui-monospace, &quot;SF Mono&quot;, monospace;"><span class="sc-interp">31ms</span></span>
+                  </div>
+                
+                  <div data-dc-tpl="151" style="display: flex; align-items: center; gap: 8px; font-size: 13px; color: rgb(22, 64, 59); padding: 5px 8px;">
+                    <svg data-dc-tpl="152" width="9" height="9" viewBox="0 0 10 10" fill="none" style="flex: 0 0 auto; opacity: 0.4;"><path data-dc-tpl="153" d="M3 1l4 4-4 4" stroke="#16403b" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                    <span data-dc-tpl="154" style="flex: 0 0 auto; width: 15px; height: 15px; display: inline-flex; align-items: center;">
+                      <svg data-dc-tpl="155" width="15" height="15" viewBox="0 0 16 16"><circle data-dc-tpl="156" cx="8" cy="8" r="8" fill="#30C95B"></circle><path data-dc-tpl="157" d="M4.6 8.2l2.1 2.1 4.7-4.7" stroke="#fff" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                    </span>
+                    <span data-dc-tpl="158" style="font-weight: 600; flex: 0 0 auto;"><span class="sc-interp">Read</span></span>
+                    <span data-dc-tpl="159" style="color: rgba(22, 64, 59, 0.62); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex: 1 1 0%; min-width: 0px;"><span class="sc-interp">Read(Sources/AltWindowCore/SessionModel.swift)</span></span>
+                    <span data-dc-tpl="160" style="flex: 0 0 auto; font-size: 11px; font-variant-numeric: tabular-nums; color: rgba(22, 64, 59, 0.5); font-family: ui-monospace, &quot;SF Mono&quot;, monospace;"><span class="sc-interp">92ms</span></span>
+                  </div>
+                
+                  <div data-dc-tpl="151" style="display: flex; align-items: center; gap: 8px; font-size: 13px; color: rgb(22, 64, 59); padding: 5px 8px;">
+                    <svg data-dc-tpl="152" width="9" height="9" viewBox="0 0 10 10" fill="none" style="flex: 0 0 auto; opacity: 0.4;"><path data-dc-tpl="153" d="M3 1l4 4-4 4" stroke="#16403b" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                    <span data-dc-tpl="154" style="flex: 0 0 auto; width: 15px; height: 15px; display: inline-flex; align-items: center;">
+                      <svg data-dc-tpl="155" width="15" height="15" viewBox="0 0 16 16"><circle data-dc-tpl="156" cx="8" cy="8" r="8" fill="#30C95B"></circle><path data-dc-tpl="157" d="M4.6 8.2l2.1 2.1 4.7-4.7" stroke="#fff" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                    </span>
+                    <span data-dc-tpl="158" style="font-weight: 600; flex: 0 0 auto;"><span class="sc-interp">Bash</span></span>
+                    <span data-dc-tpl="159" style="color: rgba(22, 64, 59, 0.62); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex: 1 1 0%; min-width: 0px;"><span class="sc-interp">Bash(ls -la Sources/AltWindowCore)</span></span>
+                    <span data-dc-tpl="160" style="flex: 0 0 auto; font-size: 11px; font-variant-numeric: tabular-nums; color: rgba(22, 64, 59, 0.5); font-family: ui-monospace, &quot;SF Mono&quot;, monospace;"><span class="sc-interp">120ms</span></span>
+                  </div>
+                
+              </div>
+            
+          </div>
+        </div>
+        <div data-dc-tpl="161" style="position: absolute; right: 18px; bottom: 16px; width: 34px; height: 34px; border-radius: 50%; background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(10px); display: flex; align-items: center; justify-content: center; box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 8px;">
+          <svg data-dc-tpl="162" width="26" height="26" viewBox="0 0 26 26" fill="none"><circle data-dc-tpl="163" cx="13" cy="13" r="11" fill="#29BCAB"></circle><path data-dc-tpl="164" d="M13 7.5v9M9 12.5l4 4 4-4" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <div data-dc-tpl="165" style="position: absolute; border-radius: 11px; box-shadow: rgba(0, 0, 0, 0.42) 0px 28px 70px, rgba(0, 0, 0, 0.25) 0px 2px 8px; border: 0.5px solid rgba(255, 255, 255, 0.28); overflow: hidden; left: 50px; top: 622px; width: 470px; height: 258px; z-index: 22; transition: 0.35s;">
+    <div data-dc-tpl="166" style="position: absolute; inset: 0px; background: rgba(240, 236, 251, 0.55); backdrop-filter: blur(34px) saturate(1.5);"></div>
+    <div data-dc-tpl="167" style="position: absolute; inset: 0px; background: linear-gradient(135deg, rgba(140, 107, 230, 0.34), rgba(140, 107, 230, 0.07));"></div>
+    <div data-dc-tpl="168" style="position: absolute; inset: 0px; background: linear-gradient(rgba(255, 255, 255, 0.3), transparent 42%);"></div>
+    <div data-dc-tpl="169" style="position: relative; height: 100%; display: flex; flex-direction: column;">
+      <div data-dc-tpl="170" style="height: 52px; display: flex; align-items: center; gap: 10px; padding: 0px 14px; border-bottom: 0.5px solid rgba(0, 0, 0, 0.1);">
+        <div data-dc-tpl="171" style="display: flex; gap: 8px; align-items: center;">
+          <div data-dc-tpl="172" style="width: 12px; height: 12px; border-radius: 50%; background: rgb(255, 95, 87); box-shadow: rgba(0, 0, 0, 0.18) 0px 0px 0px 0.5px inset;"></div>
+          <div data-dc-tpl="173" style="width: 12px; height: 12px; border-radius: 50%; background: rgb(254, 188, 46); box-shadow: rgba(0, 0, 0, 0.18) 0px 0px 0px 0.5px inset;"></div>
+          <div data-dc-tpl="174" style="width: 12px; height: 12px; border-radius: 50%; background: rgb(40, 200, 64); box-shadow: rgba(0, 0, 0, 0.18) 0px 0px 0px 0.5px inset;"></div>
+        </div>
+        <div data-dc-tpl="175" style="margin-left: 6px; display: flex; align-items: center; gap: 6px; height: 26px; padding: 0px 11px; border-radius: 7px; background: rgba(255, 255, 255, 0.55); border: 0.5px solid rgba(0, 0, 0, 0.1); color: rgb(54, 40, 106); font-size: 12.5px; font-weight: 600; white-space: nowrap;">
+          <svg data-dc-tpl="176" width="14" height="13" viewBox="0 0 16 14" fill="none"><rect data-dc-tpl="177" x="0.6" y="3.4" width="11" height="9.5" rx="1.6" stroke="#36286a" stroke-width="1.1"></rect><rect data-dc-tpl="178" x="4.4" y="0.6" width="11" height="9.5" rx="1.6" fill="rgba(240,236,251,0.9)" stroke="#36286a" stroke-width="1.1"></rect></svg>
+          <span class="sc-interp">● AltWindow · 38c68817</span>
+          <svg data-dc-tpl="179" width="9" height="9" viewBox="0 0 10 7" fill="none" style="margin-left: 1px; opacity: 0.65;"><path data-dc-tpl="180" d="M1 1l4 4 4-4" stroke="#36286a" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        </div>
+        <div data-dc-tpl="181" style="flex: 1 1 0%; text-align: center; font-size: 13.5px; font-weight: 600; color: rgb(54, 40, 106); letter-spacing: 0.2px;">Responses</div>
+        <div data-dc-tpl="182" style="width: 30px; height: 26px; display: flex; align-items: center; justify-content: center; border-radius: 7px; background: rgba(255, 255, 255, 0.4); border: 0.5px solid rgba(0, 0, 0, 0.08);">
+          <svg data-dc-tpl="183" width="17" height="17" viewBox="0 0 18 18" fill="none"><circle data-dc-tpl="184" cx="9" cy="9" r="7.6" stroke="#36286a" stroke-width="1.1"></circle><circle data-dc-tpl="185" cx="5.5" cy="9" r="1.05" fill="#36286a"></circle><circle data-dc-tpl="186" cx="9" cy="9" r="1.05" fill="#36286a"></circle><circle data-dc-tpl="187" cx="12.5" cy="9" r="1.05" fill="#36286a"></circle></svg>
+        </div>
+      </div>
+      <div data-dc-tpl="188" style="flex: 1 1 0%; overflow: hidden; padding: 13px 16px; display: flex; flex-direction: column; gap: 12px;">
+        
+          <div data-dc-tpl="190" style="display: flex; flex-direction: column; gap: 4px;">
+            <div data-dc-tpl="191" style="display: flex; align-items: center; gap: 6px;">
+              <span data-dc-tpl="192" style="display: inline-flex; align-items: center; justify-content: center; width: 18px; height: 18px; border-radius: 50%; background: rgba(140, 107, 230, 0.9);">
+                <svg data-dc-tpl="193" width="11" height="11" viewBox="0 0 16 16" fill="#fff"><path data-dc-tpl="194" d="M8 1.5l1.5 3.7L13.5 6 10.5 8.5 11.4 13 8 10.6 4.6 13l.9-4.5L2.5 6l4-0.8z"></path></svg>
+              </span>
+              <span data-dc-tpl="195" style="font-size: 10px; font-weight: 700; letter-spacing: 0.6px; color: rgba(54, 40, 106, 0.6);">ASSISTANT</span>
+            </div>
+            <div data-dc-tpl="196" style="font-size: 13px; line-height: 1.5; color: rgb(44, 33, 80);"><span class="sc-interp">I'll adjust TaskPalette so the amber change-highlight keeps the white task text legible on black.</span></div>
+          </div>
+        
+          <div data-dc-tpl="190" style="display: flex; flex-direction: column; gap: 4px;">
+            <div data-dc-tpl="191" style="display: flex; align-items: center; gap: 6px;">
+              <span data-dc-tpl="192" style="display: inline-flex; align-items: center; justify-content: center; width: 18px; height: 18px; border-radius: 50%; background: rgba(140, 107, 230, 0.9);">
+                <svg data-dc-tpl="193" width="11" height="11" viewBox="0 0 16 16" fill="#fff"><path data-dc-tpl="194" d="M8 1.5l1.5 3.7L13.5 6 10.5 8.5 11.4 13 8 10.6 4.6 13l.9-4.5L2.5 6l4-0.8z"></path></svg>
+              </span>
+              <span data-dc-tpl="195" style="font-size: 10px; font-weight: 700; letter-spacing: 0.6px; color: rgba(54, 40, 106, 0.6);">ASSISTANT</span>
+            </div>
+            <div data-dc-tpl="196" style="font-size: 13px; line-height: 1.5; color: rgb(44, 33, 80);"><span class="sc-interp">`swift build` is clean. Editing TasksView.swift, then I'll run the suite.</span></div>
+          </div>
+        
+          <div data-dc-tpl="190" style="display: flex; flex-direction: column; gap: 4px;">
+            <div data-dc-tpl="191" style="display: flex; align-items: center; gap: 6px;">
+              <span data-dc-tpl="192" style="display: inline-flex; align-items: center; justify-content: center; width: 18px; height: 18px; border-radius: 50%; background: rgba(140, 107, 230, 0.9);">
+                <svg data-dc-tpl="193" width="11" height="11" viewBox="0 0 16 16" fill="#fff"><path data-dc-tpl="194" d="M8 1.5l1.5 3.7L13.5 6 10.5 8.5 11.4 13 8 10.6 4.6 13l.9-4.5L2.5 6l4-0.8z"></path></svg>
+              </span>
+              <span data-dc-tpl="195" style="font-size: 10px; font-weight: 700; letter-spacing: 0.6px; color: rgba(54, 40, 106, 0.6);">ASSISTANT</span>
+            </div>
+            <div data-dc-tpl="196" style="font-size: 13px; line-height: 1.5; color: rgb(44, 33, 80);"><span class="sc-interp">Running scripts/test.sh now to confirm the full suite passes…</span><span data-dc-tpl="198" style="display: inline-block; width: 7px; height: 14px; margin-left: 2px; vertical-align: -2px; background: rgb(140, 107, 230); animation: 1s step-end 0s infinite normal none running ccc-blink;"></span></div>
+          </div>
+        
+      </div>
+    </div>
+  </div>
+
+  
+  <div data-dc-tpl="199" style="position: absolute; border-radius: 11px; box-shadow: rgba(0, 0, 0, 0.5) 0px 28px 70px, rgba(0, 0, 0, 0.3) 0px 2px 8px; border: 0.5px solid rgba(255, 255, 255, 0.14); overflow: hidden; background: rgb(0, 0, 0); left: 1200px; top: 330px; width: 572px; height: 550px; z-index: 24; transition: 0.35s;">
+    <div data-dc-tpl="200" style="position: relative; height: 100%; display: flex; flex-direction: column; color: rgb(255, 255, 255);">
+      <div data-dc-tpl="201" style="height: 52px; display: flex; align-items: center; gap: 10px; padding: 0px 14px; border-bottom: 0.5px solid rgba(255, 255, 255, 0.1); background: rgb(10, 10, 10);">
+        <div data-dc-tpl="202" style="display: flex; gap: 8px; align-items: center;">
+          <div data-dc-tpl="203" style="width: 12px; height: 12px; border-radius: 50%; background: rgb(255, 95, 87);"></div>
+          <div data-dc-tpl="204" style="width: 12px; height: 12px; border-radius: 50%; background: rgb(254, 188, 46);"></div>
+          <div data-dc-tpl="205" style="width: 12px; height: 12px; border-radius: 50%; background: rgb(40, 200, 64);"></div>
+        </div>
+        
+          <div data-dc-tpl="207" style="margin-left: 6px; display: flex; align-items: center; gap: 6px; height: 26px; padding: 0px 11px; border-radius: 7px; background: rgba(255, 255, 255, 0.1); border: 0.5px solid rgba(255, 255, 255, 0.16); color: rgb(255, 255, 255); font-size: 12.5px; font-weight: 600; white-space: nowrap;">
+            <svg data-dc-tpl="208" width="14" height="13" viewBox="0 0 16 14" fill="none"><rect data-dc-tpl="209" x="0.6" y="3.4" width="11" height="9.5" rx="1.6" stroke="#fff" stroke-width="1.1"></rect><rect data-dc-tpl="210" x="4.4" y="0.6" width="11" height="9.5" rx="1.6" fill="#000" stroke="#fff" stroke-width="1.1"></rect></svg>
+            <span class="sc-interp">● AltWindow · 38c68817</span>
+            <svg data-dc-tpl="211" width="9" height="9" viewBox="0 0 10 7" fill="none" style="margin-left: 1px; opacity: 0.7;"><path data-dc-tpl="212" d="M1 1l4 4 4-4" stroke="#fff" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          </div>
+        
+        
+        <div data-dc-tpl="218" style="flex: 1 1 0%; text-align: center; font-size: 13.5px; font-weight: 600; color: rgb(255, 255, 255); letter-spacing: 0.2px;"><span class="sc-interp">Tasks</span></div>
+        <div data-dc-tpl="219" style="width: 30px; height: 26px; display: flex; align-items: center; justify-content: center; border-radius: 7px; background: rgba(255, 255, 255, 0.08); border: 0.5px solid rgba(255, 255, 255, 0.14);">
+          <svg data-dc-tpl="220" width="17" height="17" viewBox="0 0 18 18" fill="none"><circle data-dc-tpl="221" cx="9" cy="9" r="7.6" stroke="#fff" stroke-width="1.1"></circle><circle data-dc-tpl="222" cx="5.5" cy="9" r="1.05" fill="#fff"></circle><circle data-dc-tpl="223" cx="9" cy="9" r="1.05" fill="#fff"></circle><circle data-dc-tpl="224" cx="12.5" cy="9" r="1.05" fill="#fff"></circle></svg>
+        </div>
+      </div>
+      <div data-dc-tpl="225" style="flex: 1 1 0%; overflow: hidden; padding: 8px;">
+        
+          <div data-dc-tpl="227" style="display: flex; align-items: center; gap: 10px; font-size: 13.5px; padding: 9px 10px; border-radius: 7px; background: transparent;">
+            
+              <svg data-dc-tpl="229" width="17" height="17" viewBox="0 0 18 18" style="flex: 0 0 auto;"><rect data-dc-tpl="230" x="0.5" y="0.5" width="17" height="17" rx="4" fill="#5CEB8C"></rect><path data-dc-tpl="231" d="M4.6 9.2l2.6 2.6 5.4-5.6" stroke="#000" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            
+            
+            <span data-dc-tpl="235" style="color: rgba(255, 255, 255, 0.5); text-decoration: line-through;"><span class="sc-interp">Decode hook events into the session reducer</span></span>
+          </div>
+        
+          <div data-dc-tpl="227" style="display: flex; align-items: center; gap: 10px; font-size: 13.5px; padding: 9px 10px; border-radius: 7px; background: transparent;">
+            
+              <svg data-dc-tpl="229" width="17" height="17" viewBox="0 0 18 18" style="flex: 0 0 auto;"><rect data-dc-tpl="230" x="0.5" y="0.5" width="17" height="17" rx="4" fill="#5CEB8C"></rect><path data-dc-tpl="231" d="M4.6 9.2l2.6 2.6 5.4-5.6" stroke="#000" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            
+            
+            <span data-dc-tpl="235" style="color: rgba(255, 255, 255, 0.5); text-decoration: line-through;"><span class="sc-interp">Render Activity window tool rows with status icons</span></span>
+          </div>
+        
+          <div data-dc-tpl="227" style="display: flex; align-items: center; gap: 10px; font-size: 13.5px; padding: 9px 10px; border-radius: 7px; background: rgba(255, 199, 71, 0.2);">
+            
+            
+              <svg data-dc-tpl="233" width="17" height="17" viewBox="0 0 18 18" style="flex: 0 0 auto;"><rect data-dc-tpl="234" x="1" y="1" width="16" height="16" rx="4" fill="none" stroke="rgba(255,255,255,0.55)" stroke-width="1.4"></rect></svg>
+            
+            <span data-dc-tpl="235" style="color: rgb(255, 255, 255); text-decoration: none;"><span class="sc-interp">Group tool calls under subagent sections</span></span>
+          </div>
+        
+          <div data-dc-tpl="227" style="display: flex; align-items: center; gap: 10px; font-size: 13.5px; padding: 9px 10px; border-radius: 7px; background: rgba(255, 199, 71, 0.2);">
+            
+            
+              <svg data-dc-tpl="233" width="17" height="17" viewBox="0 0 18 18" style="flex: 0 0 auto;"><rect data-dc-tpl="234" x="1" y="1" width="16" height="16" rx="4" fill="none" stroke="rgba(255,255,255,0.55)" stroke-width="1.4"></rect></svg>
+            
+            <span data-dc-tpl="235" style="color: rgb(255, 255, 255); text-decoration: none;"><span class="sc-interp">White-on-black Tasks window with checkbox status</span></span>
+          </div>
+        
+          <div data-dc-tpl="227" style="display: flex; align-items: center; gap: 10px; font-size: 13.5px; padding: 9px 10px; border-radius: 7px; background: transparent;">
+            
+            
+              <svg data-dc-tpl="233" width="17" height="17" viewBox="0 0 18 18" style="flex: 0 0 auto;"><rect data-dc-tpl="234" x="1" y="1" width="16" height="16" rx="4" fill="none" stroke="rgba(255,255,255,0.55)" stroke-width="1.4"></rect></svg>
+            
+            <span data-dc-tpl="235" style="color: rgb(255, 255, 255); text-decoration: none;"><span class="sc-interp">Persist per-window layout + always-on-top</span></span>
+          </div>
+        
+      </div>
+    </div>
+  </div>
+
+  
+  
+    <div data-dc-tpl="237" style="position: absolute; left: 0px; top: 0px; width: 1820px; height: 1000px; z-index: 60;">
+      <svg data-dc-tpl="238" width="1820" height="1000" viewBox="0 0 1820 1000" style="position: absolute; left: 0px; top: 0px;">
+        <g data-dc-tpl="239" stroke="rgba(255,255,255,0.78)" stroke-width="1.5" fill="none">
+          <path data-dc-tpl="240" d="M204 100 L222 148"></path>
+          <path data-dc-tpl="241" d="M700 100 L772 148"></path>
+          <path data-dc-tpl="242" d="M236 908 L236 804"></path>
+          <path data-dc-tpl="243" d="M740 908 L824 860"></path>
+          <path data-dc-tpl="244" d="M1410 908 L1420 826"></path>
+          <path data-dc-tpl="245" d="M1402 66 L1568 18"></path>
+        </g>
+        <g data-dc-tpl="246">
+          <circle data-dc-tpl="247" cx="222" cy="150" r="5.5" fill="none" stroke="rgba(41,188,171,0.95)" stroke-width="2"></circle><circle data-dc-tpl="248" cx="222" cy="150" r="2.4" fill="#fff"></circle>
+          <circle data-dc-tpl="249" cx="772" cy="150" r="5.5" fill="none" stroke="rgba(41,188,171,0.95)" stroke-width="2"></circle><circle data-dc-tpl="250" cx="772" cy="150" r="2.4" fill="#fff"></circle>
+          <circle data-dc-tpl="251" cx="236" cy="802" r="5.5" fill="none" stroke="rgba(140,107,230,0.95)" stroke-width="2"></circle><circle data-dc-tpl="252" cx="236" cy="802" r="2.4" fill="#fff"></circle>
+          <circle data-dc-tpl="253" cx="824" cy="858" r="5.5" fill="none" stroke="rgba(41,188,171,0.95)" stroke-width="2"></circle><circle data-dc-tpl="254" cx="824" cy="858" r="2.4" fill="#fff"></circle>
+          <circle data-dc-tpl="255" cx="1420" cy="824" r="5.5" fill="none" stroke="rgba(255,199,71,0.95)" stroke-width="2"></circle><circle data-dc-tpl="256" cx="1420" cy="824" r="2.4" fill="#fff"></circle>
+          <circle data-dc-tpl="257" cx="1568" cy="16" r="6.5" fill="none" stroke="rgba(41,188,171,0.98)" stroke-width="2"></circle><circle data-dc-tpl="258" cx="1568" cy="16" r="2.6" fill="#fff"></circle>
+        </g>
+      </svg>
+
+      <div data-dc-tpl="259" style="position: absolute; left: 50px; top: 36px; width: 240px; z-index: 61; display: flex; gap: 9px; padding: 9px 11px; border-radius: 10px; background: rgba(9, 15, 19, 0.85); border: 0.5px solid rgba(255, 255, 255, 0.22); box-shadow: rgba(0, 0, 0, 0.34) 0px 10px 26px; color: rgb(255, 255, 255); font-size: 12px; line-height: 1.4; font-weight: 500; text-shadow: rgba(0, 0, 0, 0.4) 0px 1px 2px;">
+        <span data-dc-tpl="260">Keep running Claude Code in your own terminal — AltWindow never patches or replaces it.</span>
+      </div>
+
+      <div data-dc-tpl="261" style="position: absolute; left: 556px; top: 36px; width: 264px; z-index: 61; display: flex; gap: 9px; padding: 9px 11px; border-radius: 10px; background: rgba(9, 15, 19, 0.85); border: 0.5px solid rgba(255, 255, 255, 0.22); box-shadow: rgba(0, 0, 0, 0.34) 0px 10px 26px; color: rgb(255, 255, 255); font-size: 12px; line-height: 1.4; font-weight: 500; text-shadow: rgba(0, 0, 0, 0.4) 0px 1px 2px;">
+        <span data-dc-tpl="262">Activity — one row per tool call: live status, summaries, expandable diffs, and subagent groups.</span>
+      </div>
+
+      <div data-dc-tpl="263" style="position: absolute; left: 64px; top: 908px; width: 266px; z-index: 61; display: flex; gap: 9px; padding: 9px 11px; border-radius: 10px; background: rgba(9, 15, 19, 0.85); border: 0.5px solid rgba(255, 255, 255, 0.22); box-shadow: rgba(0, 0, 0, 0.34) 0px 10px 26px; color: rgb(255, 255, 255); font-size: 12px; line-height: 1.4; font-weight: 500; text-shadow: rgba(0, 0, 0, 0.4) 0px 1px 2px;">
+        <span data-dc-tpl="264">The Responses window mirrors Claude's replies as they stream.</span>
+      </div>
+
+      <div data-dc-tpl="265" style="position: absolute; left: 560px; top: 908px; width: 300px; z-index: 61; display: flex; gap: 9px; padding: 9px 11px; border-radius: 10px; background: rgba(9, 15, 19, 0.85); border: 0.5px solid rgba(255, 255, 255, 0.22); box-shadow: rgba(0, 0, 0, 0.34) 0px 10px 26px; color: rgb(255, 255, 255); font-size: 12px; line-height: 1.4; font-weight: 500; text-shadow: rgba(0, 0, 0, 0.4) 0px 1px 2px;">
+        <span data-dc-tpl="266">Every pane is a first-class macOS window — move across monitors, resize, pin on top, dim, split or combine.</span>
+      </div>
+
+      <div data-dc-tpl="267" style="position: absolute; left: 1150px; top: 908px; width: 280px; z-index: 61; display: flex; gap: 9px; padding: 9px 11px; border-radius: 10px; background: rgba(9, 15, 19, 0.85); border: 0.5px solid rgba(255, 255, 255, 0.22); box-shadow: rgba(0, 0, 0, 0.34) 0px 10px 26px; color: rgb(255, 255, 255); font-size: 12px; line-height: 1.4; font-weight: 500; text-shadow: rgba(0, 0, 0, 0.4) 0px 1px 2px;">
+        <span data-dc-tpl="268">Tasks: white-on-black so it's never mistaken for Activity — new or changed items glow ~30s.</span>
+      </div>
+
+      <div data-dc-tpl="269" style="position: absolute; left: 1146px; top: 40px; width: 248px; z-index: 61; display: flex; gap: 9px; padding: 9px 11px; border-radius: 10px; background: rgba(9, 15, 19, 0.85); border: 0.5px solid rgba(255, 255, 255, 0.22); box-shadow: rgba(0, 0, 0, 0.34) 0px 10px 26px; color: rgb(255, 255, 255); font-size: 12px; line-height: 1.4; font-weight: 500; text-shadow: rgba(0, 0, 0, 0.4) 0px 1px 2px;">
+        <span data-dc-tpl="270">The menu-bar icon shows the live session count — open it to switch sessions, split or combine windows, or install the hooks.</span>
+      </div>
+    </div>
+  
+
+  
+      <div data-dc-tpl="271" style="position: absolute; left: 1486px; top: 46px; width: 256px; z-index: 62; background: rgba(247, 247, 249, 0.98); border: 0.5px solid rgba(0, 0, 0, 0.14); border-radius: 9px; box-shadow: rgba(0, 0, 0, 0.4) 0px 20px 50px; padding: 6px; color: rgb(28, 28, 30); font-size: 12.5px;">
+        <div data-dc-tpl="272" style="position: absolute; top: -6px; right: 116px; width: 11px; height: 11px; background: rgba(247, 247, 249, 0.98); border-left: 0.5px solid rgba(0, 0, 0, 0.14); border-top: 0.5px solid rgba(0, 0, 0, 0.14); transform: rotate(45deg);"></div>
+        <div data-dc-tpl="273" style="padding: 3px 9px 5px; font-size: 9.5px; font-weight: 700; letter-spacing: 0.6px; color: rgba(0, 0, 0, 0.42);">CLAUDE CODE SESSIONS</div>
+        <div data-dc-tpl="274" style="display: flex; align-items: center; gap: 9px; padding: 5px 9px; border-radius: 5px; background: rgb(41, 188, 171); color: rgb(255, 255, 255);">
+          <svg data-dc-tpl="275" width="12" height="12" viewBox="0 0 16 16" fill="none" style="flex: 0 0 auto;"><path data-dc-tpl="276" d="M3 8.5l3.2 3.2 6.8-7.4" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          <span data-dc-tpl="277" style="flex: 1 1 0%; white-space: nowrap;">AltWindow · 38c68817</span>
+          <span data-dc-tpl="278" style="font-size: 10px; opacity: 0.92;">● live</span>
+        </div>
+        <div data-dc-tpl="279" style="display: flex; align-items: center; gap: 9px; padding: 5px 9px;">
+          <span data-dc-tpl="280" style="flex: 0 0 auto; width: 12px;"></span>
+          <span data-dc-tpl="281" style="flex: 1 1 0%; white-space: nowrap;">api-server · 7b1142c9</span>
+          <span data-dc-tpl="282" style="font-size: 10px; color: rgb(38, 176, 106);">● live</span>
+        </div>
+        <div data-dc-tpl="283" style="display: flex; align-items: center; gap: 9px; padding: 5px 9px;">
+          <span data-dc-tpl="284" style="flex: 0 0 auto; width: 12px;"></span>
+          <span data-dc-tpl="285" style="flex: 1 1 0%; white-space: nowrap;">docs-site · 0af9d3e1</span>
+          <span data-dc-tpl="286" style="font-size: 10px; color: rgba(0, 0, 0, 0.34);">idle</span>
+        </div>
+        <div data-dc-tpl="287" style="height: 0.5px; background: rgba(0, 0, 0, 0.12); margin: 5px 8px;"></div>
+        <div data-dc-tpl="288" style="display: flex; align-items: center; gap: 9px; padding: 5px 9px;">
+          <svg data-dc-tpl="289" width="13" height="12" viewBox="0 0 16 14" fill="none" style="flex: 0 0 auto;"><rect data-dc-tpl="290" x="0.7" y="3.3" width="10" height="9.5" rx="1.4" stroke="rgba(0,0,0,0.55)" stroke-width="1.1"></rect><rect data-dc-tpl="291" x="4.4" y="0.7" width="10" height="9.5" rx="1.4" fill="rgba(247,247,249,0.98)" stroke="rgba(0,0,0,0.55)" stroke-width="1.1"></rect></svg>
+          <span data-dc-tpl="292">Split Session Windows</span>
+        </div>
+        <div data-dc-tpl="293" style="display: flex; align-items: center; gap: 9px; padding: 5px 9px;">
+          <svg data-dc-tpl="294" width="13" height="13" viewBox="0 0 16 16" fill="none" style="flex: 0 0 auto;"><path data-dc-tpl="295" d="M9.5 2.5h4v4M13.5 2.5l-5 5M6.5 13.5h-4v-4M2.5 13.5l5-5" stroke="rgba(0,0,0,0.55)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          <span data-dc-tpl="296">Combine Session Windows</span>
+        </div>
+        <div data-dc-tpl="297" style="height: 0.5px; background: rgba(0, 0, 0, 0.12); margin: 5px 8px;"></div>
+        <div data-dc-tpl="298" style="display: flex; align-items: center; gap: 9px; padding: 5px 9px;">
+          <span data-dc-tpl="299">Install Claude Code Hooks…</span>
+        </div>
+        <div data-dc-tpl="300" style="height: 0.5px; background: rgba(0, 0, 0, 0.12); margin: 5px 8px;"></div>
+        <div data-dc-tpl="301" style="display: flex; align-items: center; gap: 9px; padding: 5px 9px;">
+          <span data-dc-tpl="302" style="flex: 1 1 0%;">Quit AltWindow</span>
+          <span data-dc-tpl="303" style="color: rgba(0, 0, 0, 0.45);">⌘Q</span>
+        </div>
+      </div>
+
+  
+  </div></div></div></body></html>
