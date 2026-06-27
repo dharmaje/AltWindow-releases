@@ -87,6 +87,13 @@
       background: #0b0e14; box-shadow: 0 18px 50px rgba(0, 0, 0, .35);
     }
     .frame iframe { position: absolute; top: 0; left: 0; width: 1820px; height: 1000px; border: 0; transform-origin: top left; }
+    /* Static fallback shown only when JavaScript is disabled (the iframe needs JS to scale). */
+    .frame-img {
+      display: block; position: relative; left: 50%; transform: translateX(-50%);
+      width: min(94vw, 1320px); height: auto; aspect-ratio: 1820 / 1000;
+      border-radius: 14px; border: 1px solid var(--border);
+      background: #0b0e14; box-shadow: 0 18px 50px rgba(0, 0, 0, .35);
+    }
     .showcase-cap { text-align: center; color: var(--muted); font-size: 13px; margin: 16px auto 0; max-width: 64ch; }
     @media (prefers-reduced-motion: reduce) { .showcase-cue span { animation: none; } }
   </style>
@@ -125,6 +132,10 @@
       <div class="frame" id="mockup-frame">
         <iframe src="mockup.html" title="AltWindow companion windows — the Activity, Tasks, and Responses windows rendered live from Claude Code's hook events, with callouts explaining each surface" loading="lazy" scrolling="no" tabindex="-1"></iframe>
       </div>
+      <noscript>
+        <style>#mockup-frame { display: none; }</style>
+        <img class="frame-img" src="mockup.png" width="1820" height="1000" alt="AltWindow's Activity, Tasks, and Responses windows rendered live from Claude Code's hook events, alongside the untouched terminal, with callouts explaining each window." />
+      </noscript>
       <p class="showcase-cap">A look at the companion windows — <strong>Activity</strong>, <strong>Tasks</strong> (white-on-black), and <strong>Responses</strong> — driven live from Claude Code's hook events, alongside your untouched terminal.</p>
     </section>
 
